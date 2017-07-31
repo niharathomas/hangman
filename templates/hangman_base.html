@@ -1,0 +1,96 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+{% block styles -%}
+{{super()}}  {# do not forget to call super or Bootstrap's own stylesheets
+will disappear! #}
+<link rel="stylesheet" type="text/css"
+      href="{{url_for('static', filename='hangman.css')}}">
+{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="container">
+
+            <div class="masthead clearfix">
+                <div class="container inner">
+                    <h3 class="masthead-brand">Hangman</h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li class="active"><a href="#">Restart Game</a></li>
+                            <!--<li><a href="#">Features</a></li>-->
+                            <!--<li><a href="#">Contact</a></li>-->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <!--<h1 class="cover-heading">Cover your page.</h1>-->
+                <!--<p class="lead">-->
+                <!--Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.-->
+                <!--</p>-->
+
+                <img class="hangman_img" src="static/default.jpg">
+                <div>
+                    <p class="lead">
+                        Word:
+                    </p>
+                </div>
+                <p class="lead">
+                    {% for char in data.displayed_word %}
+                    <button class="btn btn-success">{{ char }}</button>
+                    {% endfor %}
+                </p>
+                <p class="lead">Available guesses:</p>
+                <p class="lead">
+                    <button onclick="window.location='{{ url_for('game') }}?guess=A';" type="button" class="btn btn-primary">A</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=B';" type="button" class="btn btn-primary">B</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=C';" type="button" class="btn btn-primary">C</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=D';" type="button" class="btn btn-primary">D</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=E';" type="button" class="btn btn-primary">E</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=F';" type="button" class="btn btn-primary">F</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=G';" type="button" class="btn btn-primary">G</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=H';" type="button" class="btn btn-primary">H</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=I';" type="button" class="btn btn-primary">I</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=J';" type="button" class="btn btn-primary">J</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=K';" type="button" class="btn btn-primary">K</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=L';" type="button" class="btn btn-primary">L</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=M';" type="button" class="btn btn-primary">M</button>
+                </p>
+                <p class="lead">
+                    <button onclick="window.location='{{ url_for('game') }}?guess=N';" type="button" class="btn btn-primary">N</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=O';" type="button" class="btn btn-primary">O</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=P';" type="button" class="btn btn-primary">P</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=Q';" type="button" class="btn btn-primary">Q</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=R';" type="button" class="btn btn-primary">R</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=S';" type="button" class="btn btn-primary">S</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=T';" type="button" class="btn btn-primary">T</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=U';" type="button" class="btn btn-primary">U</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=V';" type="button" class="btn btn-primary">V</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=W';" type="button" class="btn btn-primary">W</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=X';" type="button" class="btn btn-primary">X</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=Y';" type="button" class="btn btn-primary">Y</button>
+                    <button onclick="window.location='{{ url_for('game') }}?guess=Z';" type="button" class="btn btn-primary">Z</button>
+                </p>
+            </div>
+
+        </div>
+        <div>
+            <p class="lead">
+                <button type="button" class="btn btn-warning">I Give Up! Show me the word</button>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
